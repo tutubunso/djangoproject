@@ -1,0 +1,148 @@
+{% extends 'index.html'%}
+{% load static %}
+{% block title %}Forms{% endblock %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	{% block content %}
+	{% if register_form %}
+	
+		<section class="container-fluid mt-5">
+	<section class="row justify-content-center">
+		<section class="col-12 col-sm-6 col-md-4">
+			<h3 class="card-title text-center mb-5 bg-info pb-2">page d'ajout d'une ecole</h3>
+			<form method="post" action="." class="form-signin" enctype="multipart/form-data">
+				{% csrf_token %}
+
+				 {{ register_form.as_p }}
+
+				<button class="btn btn-lg btn-primary btn-block" name="submit" type="submit">Erengistre</button>	
+				<a class="btn btn-outline-dark btn-block" href="{% url 'listeE' %}">Liste Etudiant</a>	
+			</form>
+			
+		</section>
+	</section>
+</section>
+
+	{% endif %}
+
+	{% if school_form %}
+	
+<section class="container-fluid mt-5">
+	<section class="row justify-content-center">
+		<section class="col-12 col-sm-6 col-md-4">
+			<h3 class="card-title text-center mb-5 bg-info pb-2">page d'ajout d'une ecole</h3>
+			<form method="post" action="." class="form-signin" enctype="multipart/form-data">
+				{% csrf_token %}
+
+				 {{ school_form.as_p }}
+
+				<button class="btn btn-lg btn-primary btn-block" name="submit" type="submit">Erengistre</button>	
+					
+			</form>
+			
+		</section>
+	</section>
+</section>
+
+{% endif %}
+
+{% if classe_form %}
+
+	<section class="container-fluid mt-5">
+		<section class="row justify-content-center">
+			<section class="col-12 col-sm-6 col-md-4">
+				<h3 class="card-title text-center mb-5 bg-info pb-2">page d'ajout d'une classe</h3>
+				<form method="post" action="." class="form-signin" enctype="multipart/form-data">
+					{% csrf_token %}
+
+					 {{ classe_form.as_p }}
+
+					<button class="btn btn-lg btn-primary btn-block" name="submit" type="submit">Erengistre</button>	
+					
+				</form>
+				
+			</section>
+		</section>
+	</section>
+{% endif %}
+{% if modifier_form %}
+
+	<section class="container-fluid mt-5">
+		<section class="row justify-content-center">
+			<section class="col-12 col-sm-6 col-md-4">
+				<h3 class="card-title text-center mb-5 bg-maroon pb-2">page de modification des donnes</h3>
+				<form method="post" action="." class="form-signin" enctype="multipart/form-data">
+					{% csrf_token %}
+
+					 {{ modifier_form.as_p}}
+
+					<button class="btn btn-lg btn-primary btn-block" name="submit" type="submit">Erengistre</button>	
+					
+				</form>
+				
+			</section>
+		</section>
+	</section>
+{% endif %}
+
+{% if profil_form %}
+<section class="container-fluid mt-5">
+<section class="row justify-content-center">
+	<section class="col-12 col-sm-6 col-md-4">
+		<h3 class="card-title text-center mb-5 bg-info pb-2">inscription page</h3>
+		<form method="post" action="." class="form-signin" enctype="multipart/form-data">
+			{% csrf_token %}
+
+			 {{ profil_form.as_p }}
+
+			<button class="btn btn-lg btn-primary btn-block" name="submit" type="submit">Erengistre</button>	
+			<a class="btn btn-lg btn-primary btn-block" href="{% url 'login' %}">connexion</a>	
+		</form>
+		
+	</section>
+</section>
+</section>
+
+	
+{% endif %}
+
+{% if connexion_form %}
+<section class="container-fluid mt-5">
+<section class="row justify-content-center">
+	<section class="col-12 col-sm-6 col-md-4">
+		<h3 class="card-title text-center mb-5 bg-info pb-2">connexion page</h3>
+		<form method="post" action="." class="form-signin">
+			{% csrf_token %}
+
+			 
+
+			 <label>username:</label>
+			 <p>{{connexion_form.username}}</p>
+
+			 <label>password:</label>
+			 <p>{{connexion_form.password}}</p>
+
+
+			<button class="btn btn-lg btn-primary btn-block" name="submit" type="submit">connexion</button>	
+			<a class="btn btn-lg btn-primary btn-block" href="{% url 'registerP' %}">register</a>	
+		</form>
+		
+	</section>
+</section>
+</section>
+
+	
+{% endif %}
+{% endblock %}
+
+</body>
+</html>
+
+
+
+
